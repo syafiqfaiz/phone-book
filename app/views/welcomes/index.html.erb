@@ -1,2 +1,35 @@
-<h1>Welcomes#index</h1>
-<p>Find me in app/views/welcomes/index.html.erb</p>
+<div class="peopleList">
+  <% @people.each do |person| %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <%= person.name %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <% if person.phone_numbers.any? %>
+          <%= person.phone_numbers.each do |number| %>
+            <%= number.humanized_number %>
+          <% end %>
+        <% else %>
+          <h4>No phone numbers added. Add one!</h4>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="newPerson">
+  <%= link_to("Add new contact", new_person_path ,id: "newPersonForm") %>
+</div>
+
+<script>
+  $('#newPersonForm').click(function(click){
+    click.preventDefault();
+    $.ajax({
+      url: $(this).attr('href')
+      }).done(function(html){
+        debugger
+        $('.peopleList').prepend()
+      })
+  })
+</script>

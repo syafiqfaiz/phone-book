@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'welcomes/index'
+  root 'welcomes#index'
+
+  resources :people, except: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
