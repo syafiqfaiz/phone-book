@@ -1,17 +1,17 @@
-var html =   "<div class=\"panel panel-primary\" id=\"person_<%=@person.id%>\">\
-                <div class=\"panel-heading\">\
-                  <div class=\"panel-title\">\
-                    <%= @person.name %>\
-                  </div>\
+var html =  "<div class=\"panel panel-info\" id=\"person_<%=@person.id%>\">\
+              <div class=\"panel-heading\">\
+                <div class=\"panel-title\">\
+                  <%= @person.name %>\
                 </div>\
-                <div class=\"panel-body\">\
-                  <div class=\"row\">\
-                    <h4>No phone numbers added. Add one!</h4>\
-                    <a data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/people/<%=@person.id%>\">Delete contact</a>\
-                    <a id=\"editPersonForm\" data-person-id=\"<%= @person.id %>\" href=\"/people/<%=@person.id%>/edit\">Edit</a>\
-                  </div>\
+                <a data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/people/<%=@person.id%>\">Delete contact</a>\
+                <a id=\"editPersonForm\" data-person-id=\"<%= @person.id %>\" href=\"/people/<%=@person.id%>/edit\">Edit</a>\
+              </div>\
+              <div class=\"panel-body\">\
+                <div class=\"row\">\
+                  <h4>No phone numbers added. Add one!</h4>\
                 </div>\
-              </div>"
+              </div>\
+            </div>"
 
 $('.peopleList').append(html)
 $('#newPersonFormPanel').slideUp()

@@ -1,0 +1,5 @@
+var html = '<li><%= @phone_number.number %></li>'
+
+var selector = "#person_<%= @person.id%> > div.panel-body > div.row"
+
+$(selector).html(html)
