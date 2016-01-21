@@ -4,7 +4,9 @@ class PeopleController < ApplicationController
 
   def index
     people = Person.all
-    render text: Person.to_csv_file(people)
+    respond_to do |format|
+       format.csv { send_data Person.to_csv_file(people), filename: "users-#{Date.today}.csv" }
+     end
   end
 
   def new
