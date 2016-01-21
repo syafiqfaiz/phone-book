@@ -1,4 +1,5 @@
-var html = '<li><%= @phone_number.number %></li>'
+var html = '<li id=\'number_<%= @phone_number.id %>\'><%= @phone_number.number %></li>\
+            '
 
 var selector = "#person_<%= @person.id%> > div.panel-body > div.row"
 

@@ -8,7 +8,8 @@ var html =  "<div class=\"panel panel-info\" id=\"person_<%=@person.id%>\">\
               </div>\
               <div class=\"panel-body\">\
                 <div class=\"row\">\
-                  <h4>No phone numbers added. Add one!</h4>\
+                  <h4>No phone numbers added. <a id=\"newPhoneNumber\" data-person-id=\"<%= @person.id %>\"\
+                  href=\"/people/<%= @person.id %>/phone_numbers/new\">Add one!</a></h4>\
                 </div>\
               </div>\
             </div>"

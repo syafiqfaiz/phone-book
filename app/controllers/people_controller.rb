@@ -9,7 +9,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     unless @person.save
-      render js: "alertFunction('Invalid input.');"
+      render js: "alert('Invalid input.');"
     end
   end
 
@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
   def update
     @person.update(person_params)
     unless @person.save
-      render js: "alertFunction('Invalid input.');"
+      render js: "alert('Invalid input.');"
     end
   end
 

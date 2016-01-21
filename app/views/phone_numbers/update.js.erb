@@ -1,0 +1,9 @@
+var selector = 'li#number_<%= @phone_number.id %>'
+
+var html = "<li id=\"number_<%= @phone_number.id %>\">\
+            <%= @phone_number.humanized_number %>\
+            <a data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/people/<%= @person.id %>/phone_numbers/<%= @phone_number.id %>\">Delete</a>, \
+            <a id=\"editPhoneNumber\" data-number-id=\"<%= @phone_number.id %>\" href=\"/people/<%= @person.id %>/phone_numbers/<%= @phone_number.id %>/edit\">Edit</a>\
+            </li>"
+
+$(selector).html(html)

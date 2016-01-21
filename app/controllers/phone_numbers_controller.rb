@@ -1,5 +1,5 @@
 class PhoneNumbersController < ApplicationController
-  before_action :find_person, only: [:new, :create]
+  before_action :find_person, only: [:new, :create, :edit, :update]
   before_action :find_phone_number, only: [:edit, :update, :destroy]
   def new
     @phone_number = PhoneNumber.new
@@ -14,15 +14,17 @@ class PhoneNumbersController < ApplicationController
   end
 
   def edit
-    
+    render layout: false
   end
 
   def update
-    
+    unless @phone_number.update(phone_number_params)
+      render js: "alert('Invalid input.');"
+    end
   end
 
   def destroy
-    
+    @phone_number.destroy
   end
 
   private

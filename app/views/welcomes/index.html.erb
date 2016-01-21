@@ -12,7 +12,11 @@
         <div class="row">
           <% if person.phone_numbers.any? %>
             <% person.phone_numbers.each do |number| %>
-              <li><%= number.humanized_number %></li> 
+              <li id='number_<%= number.id %>'>
+                <%= number.humanized_number %> 
+                <%= link_to("Delete", person_phone_number_path(person, number) , method: :delete, remote: :true) %>, 
+                <%= link_to("Edit", edit_person_phone_number_path(person, number) , id: 'editPhoneNumber', data:{number_id: number.id}) %>
+                </li> 
             <% end %>
           <% else %>
             <h4>No phone numbers added. <%= link_to("Add one!", new_person_phone_number_path(person) , id: "newPhoneNumber", data:{person_id: person.id}) %></h4>
@@ -26,7 +30,3 @@
   <%= link_to("Add new contact", new_person_path ,id: "newPersonForm") %>
 </div>
 
-
-<script>
-
-</script>
