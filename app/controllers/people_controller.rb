@@ -14,11 +14,14 @@ class PeopleController < ApplicationController
   end
 
   def edit
-    
+    render layout: false
   end
 
   def update
-    
+    @person.update(person_params)
+    unless @person.save
+      render js: "alertFunction('Invalid input.');"
+    end
   end
 
   def destroy

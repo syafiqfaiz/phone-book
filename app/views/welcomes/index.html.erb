@@ -15,7 +15,8 @@
           <% else %>
             <h4>No phone numbers added. Add one!</h4>
           <% end %>
-          <%= link_to("Delete", person_path(person) , method: :delete, remote: true) %>
+          <%= link_to("Delete contact", person_path(person) , method: :delete, remote: true) %>
+          <%= link_to("Edit", edit_person_path(person) , id: 'editPersonForm', data:{person_id: person.id}) %>
         </div>
       </div>
     </div>
@@ -24,3 +25,17 @@
 <div class="newPerson">
   <%= link_to("Add new contact", new_person_path ,id: "newPersonForm") %>
 </div>
+
+
+<script>
+  $('a#editPersonForm').click(function(click){
+    click.preventDefault();
+    var person_id = $(this).attr('data-person-id') 
+    var selector = "#person_"+ person_id + "> div.panel-body"
+    $.ajax({
+      url: $(this).attr('href')
+      }).done(function(html){
+        $(selector).prepend(html)
+      })
+  })
+</script>

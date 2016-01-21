@@ -7,4 +7,7 @@ $(document).on('ready page:load', function () {
         $('.peopleList').append(html)
       })
   })
+
+  
+
 });
