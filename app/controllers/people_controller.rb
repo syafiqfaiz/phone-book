@@ -1,5 +1,11 @@
+require 'csv'
 class PeopleController < ApplicationController
   before_action :find_person, only: [:edit, :update, :destroy]
+
+  def index
+    people = Person.all
+    render text: Person.to_csv_file(people)
+  end
 
   def new
     @person = Person.new
