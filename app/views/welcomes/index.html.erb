@@ -1,19 +1,22 @@
 <div class="peopleList">
   <% @people.each do |person| %>
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" id="person_<%= person.id %>">
       <div class="panel-heading">
         <div class="panel-title">
           <%= person.name %>
         </div>
       </div>
       <div class="panel-body">
-        <% if person.phone_numbers.any? %>
-          <%= person.phone_numbers.each do |number| %>
-            <%= number.humanized_number %>
+        <div class="row">
+          <% if person.phone_numbers.any? %>
+            <%= person.phone_numbers.each do |number| %>
+              <%= number.humanized_number %>
+            <% end %>
+          <% else %>
+            <h4>No phone numbers added. Add one!</h4>
           <% end %>
-        <% else %>
-          <h4>No phone numbers added. Add one!</h4>
-        <% end %>
+          <%= link_to("Delete", person_path(person) , method: :delete, remote: true) %>
+        </div>
       </div>
     </div>
   <% end %>
@@ -21,15 +24,3 @@
 <div class="newPerson">
   <%= link_to("Add new contact", new_person_path ,id: "newPersonForm") %>
 </div>
-
-<script>
-  $('#newPersonForm').click(function(click){
-    click.preventDefault();
-    $.ajax({
-      url: $(this).attr('href')
-      }).done(function(html){
-        debugger
-        $('.peopleList').prepend()
-      })
-  })
-</script>

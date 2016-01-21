@@ -1,3 +1,15 @@
-$('#newPersonForm').prepend("<li><%= @person.name%> </li>")
+var html =   "<div class=\"panel panel-primary\">\
+                <div class=\"panel-heading\">\
+                  <div class=\"panel-title\">\
+                    <%= @person.name %>\
+                  </div>\
+                </div>\
+                <div class=\"panel-body\">\
+                  <h4>No phone numbers added. Add one!</h4>\
+                </div>\
+              </div>"
 
-  
+$('.peopleList').append(html)
+$('#newPersonFormPanel').slideUp()
+
+

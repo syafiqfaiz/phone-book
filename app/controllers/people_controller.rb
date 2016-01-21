@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    
+    @person.destroy
   end
 
   private
