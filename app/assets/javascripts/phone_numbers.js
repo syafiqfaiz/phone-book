@@ -13,7 +13,6 @@ $(document).on('ready page:load', function () {
 
   $('a#editPhoneNumber').click(function(click){
     click.preventDefault();
-    debugger
     var number_id = $(this).attr('data-number-id') 
     var selector = "li#number_"+ number_id 
     $.ajax({
